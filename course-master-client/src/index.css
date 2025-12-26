@@ -10,6 +10,7 @@
 @theme{
   --color-accent: #5740E7;
   --color-second: #444;
+  --color-border: #e1e1e1;
 }
 @layer base {
   * {

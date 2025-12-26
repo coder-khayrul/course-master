@@ -6,7 +6,7 @@ import Container from './ui/Container';
 
 const Footer = () => {
     return (
-        // <footer className="text-base-content py-15 border-t border-t-[#e1e1e1] ">
+        // <footer className="text-base-content py-15 border-t border-t-border ">
         //     <Container>
         //         <div className='footer sm:footer-horizontal grid-cols-3'>
         //           <div>
@@ -38,7 +38,7 @@ const Footer = () => {
 
         // </footer>
 
-        <footer className="pt-15 border-t border-t-[#e1e1e1] ">
+        <footer className="pt-15 border-t border-t-border ">
             <Container>
                 <div className="">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -100,7 +100,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="border-t border-t-[#e1e1e1] mt-8 py-5 flex flex-col justify-center items-center gap-2">
+                    <div className="border-t border-t-border mt-8 py-5 flex flex-col justify-center items-center gap-2">
                         <p className="text-sm text-second">
                             © {new Date().getFullYear()} <b>CourseMaster</b>. All rights reserved.
                         </p>

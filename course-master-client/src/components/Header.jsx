@@ -13,7 +13,7 @@ const Header = () => {
         <li><NavLink to={"/about"}>About us</NavLink></li>
     </>
     return (
-        <nav className='py-3 border-b border-b-[#e1e1e1]'>
+        <nav className='py-3 border-b border-b-border'>
             <Container>
                 <div className="navbar">
                     <div className="navbar-start">
