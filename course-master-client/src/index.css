@@ -1,7 +1,16 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+:root{
+  --gradient-primary: linear-gradient(135deg, hsl(248 78% 65%) 0%, hsl(280 70% 60%) 100%);
+  --color-accent: #5740E7;
+  --color-tcolor: red;
+}
 
+@theme{
+  --color-accent: #5740E7;
+  --color-second: #444;
+}
 @layer base {
   * {
       font-family: "Inter", sans-serif;
@@ -9,9 +18,7 @@
   }
 }
 
-:root{
-  --gradient-primary: linear-gradient(135deg, hsl(248 78% 65%) 0%, hsl(280 70% 60%) 100%);
-}
+
  .text-gradient {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -40,8 +47,8 @@
 
 .animated-button svg {
   position: absolute;
-  width: 24px;
-  fill: #5740E7;
+  width: 24px ;
+  color: #5740E7 ;
   z-index: 9;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -93,7 +100,7 @@
 }
 
 .animated-button:hover svg {
-  fill: white;
+  color: white;
 }
 
 .animated-button:active {
