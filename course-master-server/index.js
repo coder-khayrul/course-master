@@ -1,6 +1,15 @@
 require('dotenv').config()
+const express = require('express');
+const app = express();
+const port = 3000;
+const cors = require('cors');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = process.env.DB_URI;
+
+
+
+app.use(cors())
+app.use(express.json())
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
@@ -9,17 +18,29 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+
+
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    const collection = client.db("courseMasterDB").collection("courses");
-    // Send a ping to confirm a successful connection
+    const coureseCollection = client.db("courseMasterDB").collection("courses");
+
+
+    app.get("/courses", async (req, res) => {
+      const courses = await coureseCollection.find().toArray();
+      res.send(courses);
+    })
+
+
+
+
     await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+  
   }
 }
+
+app.listen(port, () => {
+  console.log(`Course Master Sever Running on ${port}`)
+})
 run().catch(console.dir);

@@ -6,9 +6,10 @@ const Courses = () => {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        fetch("/data.json")
+        fetch("http://localhost:3000/courses")
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 setCourses(data);
             });
     }, [])
