@@ -55,7 +55,7 @@
 }
 
 .animated-button .arr-1 {
-  right: 16px;
+  right: 13px;
 }
 
 .animated-button .arr-2 {
@@ -93,7 +93,7 @@
 }
 
 .animated-button:hover .arr-2 {
-  left: 16px;
+  left: 13px;
 }
 
 .animated-button:hover .text {

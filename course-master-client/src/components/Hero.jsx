@@ -18,7 +18,7 @@ const Hero = () => {
                         industry-relevant courses taught by world-class instructors.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-8 justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                        <Button icon={GoArrowRight } btnText={"Explore Courses"} />
+                        <Button path={"/courses"} icon={GoArrowRight } btnText={"Explore Courses"} />
                         <Button icon={IoPlayCircleOutline} btnText={"Watch Demo"} />
 
                     </div>

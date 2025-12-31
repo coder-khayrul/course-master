@@ -48,7 +48,7 @@ const Login = () => {
                     buttonsStyling: false,
                 });
                 setUser(result.user);
-                console.log(result.user)
+                navigate("/")
             })
             .catch(error => {
                  Swal.fire({
