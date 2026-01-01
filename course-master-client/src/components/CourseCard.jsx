@@ -6,21 +6,20 @@ const CourseCard = ({ course }) => {
 
 
     return (
-        
             <Link>
-                <div className="overflow-hidden hover:shadow-lg transition-all duration-300 group h-full flex flex-col rounded-md">
-                    <div className="relative aspect-video overflow-hidden">
-                        <img
+                <div id='shine__animate-item' className="hover:shadow-lg transition-all duration-300 group h-full flex flex-col rounded-md overflow-hidden">
+                    <div className="relative aspect-video">
+                        <a id={"shine__animate-link"} className='relative block z-2 overflow-hidden' href="">
+                            <img
                             src={course.thumbnail}
                             alt={course.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            className="w-full h-full object-cover group-hover:scale-105 z-1 transition-transform duration-300"
                         />
                         {course.isFeatured && (
-                            <div className="absolute bg-accent text-white top-3 left-3 rounded-full text-sm px-3 py-1">Featured</div>
+                            <div className="absolute bg-two text-white top-3 left-3 rounded-full text-sm px-3 py-1">Featured</div>
                         )}
-                        
+                        </a>
                     </div>
-
                     <div className="p-4 flex-1">
                         <div className="flex items-center gap-2 mb-2">
                             <div  className="text-xs border border-border px-3 py-1 rounded-full">

@@ -6,7 +6,7 @@ import { IoPlayCircleOutline } from "react-icons/io5";
 import Button from './ui/Button';
 const Hero = () => {
     return (
-        <section className="relative overflow-hidden py-20 lg:py-28">
+        <section className="relative overflow-hidden py-20 lg:py-28 bg-glow">
             <div className="container">
                 <div className="max-w-3xl mx-auto text-center">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-fade-in-up">

@@ -9,8 +9,10 @@
 
 @theme{
   --color-accent: #5740E7;
+  --color-two: hsl(280 70% 60%);
   --color-second: #444;
   --color-border: #e1e1e1;
+  --color-bg: linear-gradient(90deg,hsla(0,0%,100%,.15),rgba(251,199,226,.15),rgba(220,217,254,.15));
 }
 @layer base {
   * {
@@ -18,7 +20,25 @@
   
   }
 }
+@theme {
+  --c1: #ff00cc;
+  --c2: #3333ff;
+  --c3: #00ffcc;
+  --c4: #ffcc00;
+}
 
+@keyframes borderRun {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+  .bg-glow{
+    background: linear-gradient(90deg,hsla(0,0%,100%,.15),rgba(251,199,226,.15),rgba(220,217,254,.15));;
+  }
 
  .text-gradient {
     background: var(--gradient-primary);
@@ -113,4 +133,30 @@
   width: 220px;
   height: 220px;
   opacity: 1;
+}
+
+/*style for card hover*/
+#shine__animate-link::before {
+    position: absolute;
+    top: 0px;
+    left: -100%;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+    transform: skew(-25deg);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3));
+    z-index: 1;
+  }
+
+#shine__animate-item:hover #shine__animate-link::before {
+    animation: 1.2s ease 0s 1 normal none running hoverShine;
+}
+#shine__animate-link{
+
+}
+@keyframes hoverShine {
+  100% {
+    left: 125%;
+}
 }
