@@ -14,7 +14,8 @@ export const Router = createBrowserRouter([
             {
                 index: true,
                 path:"/",
-                Component: Home
+                Component: Home,
+                loader: ()=> fetch("http://localhost:3000/courses")
             },
             {
                 path: "/courses",

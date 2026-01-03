@@ -39,7 +39,12 @@
   .bg-glow{
     background: linear-gradient(90deg,hsla(0,0%,100%,.15),rgba(251,199,226,.15),rgba(220,217,254,.15));;
   }
-
+.bg-container{
+  background-image: url("/image/cover.png");
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
  .text-gradient {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
