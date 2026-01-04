@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const cors = require('cors');
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = process.env.DB_URI;
 
 
@@ -31,12 +31,19 @@ async function run() {
       res.send(courses);
     })
 
+    app.get("/courses/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await coureseCollection.findOne(query);
+      res.send(result)
+    })
+
 
 
 
     await client.db("admin").command({ ping: 1 });
   } finally {
-  
+
   }
 }
 
