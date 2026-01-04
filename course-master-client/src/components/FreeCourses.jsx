@@ -13,7 +13,7 @@ const FreeCourses = () => {
         <section className='py-15'>
             <Container>
                 <SectionHeader title1={"Free Courses Available for"} title2={"Learning This Week"} subtitle={"Limited Offer"} />
-                <div className='grid grid-cols-3 gap-6 py-20'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-20'>
                     {
                         courses.map(course => ((
                             <CourseCard course={course} />

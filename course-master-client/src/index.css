@@ -20,12 +20,7 @@
   
   }
 }
-@theme {
-  --c1: #ff00cc;
-  --c2: #3333ff;
-  --c3: #00ffcc;
-  --c4: #ffcc00;
-}
+
 
 @keyframes borderRun {
   0% {
@@ -44,6 +39,10 @@
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
+}
+.group:hover  .text-stroke{
+  color: transparent !important;
+  -webkit-text-stroke: 1px var(--color-two);
 }
  .text-gradient {
     background: var(--gradient-primary);

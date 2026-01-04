@@ -4,10 +4,11 @@ import { GoArrowRight } from "react-icons/go";
 import { IoPlayCircleOutline } from "react-icons/io5";
 
 import Button from './ui/Button';
+import Container from './ui/Container';
 const Hero = () => {
     return (
         <section className="relative overflow-hidden py-20 lg:py-28 bg-glow">
-            <div className="container">
+            <Container>
                 <div className="max-w-3xl mx-auto text-center">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-fade-in-up">
                         Master New Skills with{' '}
@@ -17,17 +18,14 @@ const Hero = () => {
                         Join thousands of learners advancing their careers with our comprehensive,
                         industry-relevant courses taught by world-class instructors.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-8 justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                    <div className="flex flex-col  sm:flex-row gap-8 justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                         <Button path={"/courses"} icon={GoArrowRight } btnText={"Explore Courses"} />
                         <Button icon={IoPlayCircleOutline} btnText={"Watch Demo"} />
 
                     </div>
                 </div>
-            </div>
-
-            {/* Stats */}
-            <div className="container mt-16">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                 <div className="mt-16">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto ">
                     {[
                         { icon: LuBookOpen, value: '200+', label: 'Courses' },
                         { icon: LuUsers, value: '50K+', label: 'Students' },
@@ -42,6 +40,8 @@ const Hero = () => {
                     ))}
                 </div>
             </div>
+            </Container>
+           
         </section>
     );
 };
