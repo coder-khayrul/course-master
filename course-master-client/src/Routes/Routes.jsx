@@ -5,6 +5,7 @@ import Courses from "../Pages/Courses";
 import About from "../Pages/About";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import CourseDetails from "../Pages/CourseDetails";
 
 export const Router = createBrowserRouter([
     {
@@ -13,9 +14,9 @@ export const Router = createBrowserRouter([
         children: [
             {
                 index: true,
-                path:"/",
+                path: "/",
                 Component: Home,
-                loader: ()=> fetch("http://localhost:3000/courses")
+                loader: () => fetch("http://localhost:3000/courses")
             },
             {
                 path: "/courses",
@@ -32,6 +33,11 @@ export const Router = createBrowserRouter([
             {
                 path: "/register",
                 Component: Register
+            },
+            {
+                path: "/courses/:id",
+                Component: CourseDetails,
+                loader: (({ params }) => fetch(`http://localhost:3000/courses/${params.id}`))
             }
         ]
     }
