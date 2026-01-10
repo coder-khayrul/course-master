@@ -27,15 +27,27 @@ async function run() {
 
 
     app.get("/courses", async (req, res) => {
-      const courses = await coureseCollection.find().toArray();
+      const page = parseInt(req.query.page);
+      const size = parseInt(req.query.size)
+ 
+      const courses = await coureseCollection.find()
+      .skip((page-1) * size)
+      .limit(size)
+      .toArray();
+
       res.send(courses);
     })
 
-    app.get("/courses/:id", async (req, res) => {
-      const id = req.params.id;
-      const query = { _id: new ObjectId(id) };
+    app.get("/courses/:slug", async (req, res) => {
+      const slug = req.params.slug;
+      const query = { slug };
       const result = await coureseCollection.findOne(query);
       res.send(result)
+    })
+
+    app.get("/totalCourses",async(req, res)=> {
+      const count = await coureseCollection.estimatedDocumentCount();
+      res.send(count);
     })
 
 
