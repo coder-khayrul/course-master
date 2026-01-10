@@ -34,6 +34,9 @@
   .bg-glow{
     background: linear-gradient(90deg,hsla(0,0%,100%,.15),rgba(251,199,226,.15),rgba(220,217,254,.15));;
   }
+  .shadow-custom{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  }
 .bg-container{
   background-image: url("/image/cover.png");
   background-position: center center;

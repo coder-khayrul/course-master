@@ -5,12 +5,12 @@ const breadcrumbNameMap = {
   "/courses": "Courses",
 };
 
-export default function Breadcrumbs() {
+export default function Breadcrumbs({type}) {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter(Boolean);
 
   return (
-    <nav className="text-sm text-gray-600">
+    <nav className="text-[16px] text-gray-600">
       <ol className="flex items-center gap-2">
         <li>
           <Link to="/" className="hover:underline text-two">
@@ -23,14 +23,14 @@ export default function Breadcrumbs() {
           const isLast = index === pathnames.length - 1;
 
           return (
-            <li key={to} className="flex items-center gap-2 text-white">
+            <li key={to} className={`flex items-center gap-2 ${type==="secondary" ? "text-second" : "text-white"}`}>
               <span>/</span>
               {isLast ? (
-                <span className="text-white font-medium">
+                <span className={` ${type==="secondary" ? "text-second " : "text-white"} `}>
                   {breadcrumbNameMap[to] || value}
                 </span>
               ) : (
-                <Link to={to} className="hover:underline">
+                <Link to={to} className="hover:underline hover:text-accent">
                   {breadcrumbNameMap[to] || value}
                 </Link>
               )}

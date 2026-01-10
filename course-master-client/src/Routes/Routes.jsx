@@ -20,7 +20,8 @@ export const Router = createBrowserRouter([
             },
             {
                 path: "/courses",
-                Component: Courses
+                Component: Courses,
+                loader: () => fetch("http://localhost:3000/totalCourses")
             },
             {
                 path: "/about",
@@ -35,9 +36,9 @@ export const Router = createBrowserRouter([
                 Component: Register
             },
             {
-                path: "/courses/:id",
+                path: "/courses/:slug",
                 Component: CourseDetails,
-                loader: (({ params }) => fetch(`http://localhost:3000/courses/${params.id}`))
+                loader: (({ params }) => fetch(`http://localhost:3000/courses/${params.slug}`))
             }
         ]
     }

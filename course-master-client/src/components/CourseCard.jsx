@@ -6,7 +6,7 @@ const CourseCard = ({ course }) => {
 
 
     return (
-        <Link to={`/courses/${course._id}`}>
+        <Link to={`/courses/${course.slug}`}>
             <div id='shine__animate-item' className="hover:shadow-lg transition-all duration-300 group h-full flex flex-col rounded-md overflow-hidden border border-border">
                 <div className="relative aspect-video">
                     <a id={"shine__animate-link"} className='relative block z-2 overflow-hidden' href="">
