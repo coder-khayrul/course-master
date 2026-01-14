@@ -50,6 +50,12 @@ async function run() {
       res.send(count);
     })
 
+    app.post("/add-course", async(req,res)=>{
+      const newCourse = req.body;
+      const result = await coureseCollection.insertOne(newCourse);
+      res.send(result)
+    })
+
 
 
 
