@@ -76,7 +76,7 @@ const AddCourse = () => {
                 tags: tags
             };
 
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/add-course`, {
+            const res = await fetch(`https://course-master-server.vercel.app/add-course`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

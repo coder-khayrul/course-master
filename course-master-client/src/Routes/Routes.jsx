@@ -20,12 +20,12 @@ export const Router = createBrowserRouter([
                 index: true,
                 path: "/",
                 Component: Home,
-                loader: () => fetch(`${import.meta.env.VITE_API_URL}/courses`)
+                loader: () => fetch(`https://course-master-server.vercel.app/courses`)
             },
             {
                 path: "/courses",
                 Component: Courses,
-                loader: () => fetch(`${import.meta.env.VITE_API_URL}/totalCourses`)
+                loader: () => fetch(`https://course-master-server.vercel.app/totalCourses`)
             },
             {
                 path: "/about",
@@ -42,7 +42,7 @@ export const Router = createBrowserRouter([
             {
                 path: "/courses/:slug",
                 Component: CourseDetails,
-                loader: (({ params }) => fetch(`${import.meta.env.VITE_API_URL}/courses/${params.slug}`))
+                loader: (({ params }) => fetch(`https://course-master-server.vercel.app/courses/${params.slug}`))
             }
         ]
     },
@@ -58,13 +58,13 @@ export const Router = createBrowserRouter([
             {
                 path: "/dashboard/admin/manage-courses",
                 Component: ManageCourses,
-                loader: (() => fetch(`${import.meta.env.VITE_API_URL}/courses`))
+                loader: (() => fetch(`https://course-master-server.vercel.app/courses`))
 
             },
             {
                 path: "/dashboard/admin/add-course",
                 Component: AddCourse,
-                 loader: (() => fetch(`${import.meta.env.VITE_API_URL}/courses`))
+                 loader: (() => fetch(`https://course-master-server.vercel.app/courses`))
             },
 
         ]

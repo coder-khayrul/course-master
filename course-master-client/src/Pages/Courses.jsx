@@ -30,7 +30,7 @@ const Courses = () => {
         }
     }
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/courses/?page=${currentPage}&size=${itemsPerPage}`)
+        fetch(`https://course-master-server.vercel.app/courses/?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => {
                 setCourses(data);
