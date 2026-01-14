@@ -10,7 +10,7 @@ const uri = process.env.DB_URI;
 
 app.use(cors())
 app.use(express.json())
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -22,7 +22,6 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    await client.connect();
     const coureseCollection = client.db("courseMasterDB").collection("courses");
 
 
@@ -56,15 +55,13 @@ async function run() {
       res.send(result)
     })
 
-
-
-
-    await client.db("admin").command({ ping: 1 });
   } finally {
 
   }
 }
-
+app.get("/", (req, res) => {
+    res.send("WELCOME To Course Master Sever!!!!!")
+})
 app.listen(port, () => {
   console.log(`Course Master Sever Running on ${port}`)
 })
