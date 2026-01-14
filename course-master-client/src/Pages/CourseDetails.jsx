@@ -95,12 +95,12 @@ const CourseDetails = () => {
                 <Container>
                     <div>
                         <h2 className="text-2xl font-bold mb-4">Your Instructor</h2>
-                        <div className='grid grid-cols-2'>
+                        <div className='grid grid-cols-1 lg:grid-cols-2'>
                             <div className="flex gap-4 p-6 border border-border rounded-lg shadow-custom">
                                 <img src={instructor?.avatar} alt={instructor?.name} className="w-20 h-20 rounded-full" />
                                 <div>
                                     <h3 className="text-lg font-semibold">{instructor?.name}</h3>
-                                    <p className="text-second text-sm mb-2">{instructor?.title}</p>
+                                    <p class Name="text-second text-sm mb-2">{instructor?.title}</p>
                                     <p className="text-sm">{instructor?.bio}</p>
                                 </div>
                             </div>

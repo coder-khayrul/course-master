@@ -6,6 +6,10 @@ import About from "../Pages/About";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import CourseDetails from "../Pages/CourseDetails";
+import { Dashboard } from "../Layouts/Dashboard";
+import ManageCourses from "../Pages/Dashboard/Admin/ManageCourses";
+import Overview from "../Pages/Dashboard/Admin/Overview";
+import AddCourse from "../Pages/Dashboard/Admin/AddCourse";
 
 export const Router = createBrowserRouter([
     {
@@ -40,6 +44,29 @@ export const Router = createBrowserRouter([
                 Component: CourseDetails,
                 loader: (({ params }) => fetch(`http://localhost:3000/courses/${params.slug}`))
             }
+        ]
+    },
+    {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                index: true,
+                path: "/dashboard",
+                Component: Overview
+            },
+            {
+                path: "/dashboard/admin/manage-courses",
+                Component: ManageCourses,
+                loader: (() => fetch("http://localhost:3000/courses"))
+
+            },
+            {
+                path: "/dashboard/admin/add-course",
+                Component: AddCourse,
+                 loader: (() => fetch("http://localhost:3000/courses"))
+            },
+
         ]
     }
 ])

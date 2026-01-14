@@ -59,7 +59,7 @@ const Courses = () => {
                             ))
                         }
                     </div>
-                    <div className='grid grid-cols-3 gap-6 py-20'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 sm:gap-6 py-20 px-5 sm:px-0'>
                         {
                             courses.map(course => ((
                                 <CourseCard course={course} />

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { LuGraduationCap, LuLogIn, LuLogOut } from 'react-icons/lu';
+import { LuGraduationCap, LuLogIn, LuLogOut, LuNotebook } from 'react-icons/lu';
 import { FiUserMinus, FiUserPlus } from "react-icons/fi";
 
 import { Link, NavLink, useNavigate } from 'react-router';
@@ -7,6 +7,7 @@ import Container from './ui/Container';
 import Button from './ui/Button';
 import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
+import Logo from './ui/Logo';
 
 const Header = () => {
     const { user, logOutUser } = useContext(AuthContext);
@@ -61,12 +62,7 @@ const Header = () => {
                             </ul>
                         </div>
                         {/* Logo */}
-                        <Link to="/" className="flex items-center gap-2">
-                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-white">
-                                <LuGraduationCap className="h-5 w-5" />
-                            </div>
-                            <span className="text-xl font-bold">CourseMaster</span>
-                        </Link>
+                        <Logo />
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -81,10 +77,55 @@ const Header = () => {
                                 <Button size={"sm"} icon={FiUserPlus} path={"/register"} btnText={"Sign up"} />
                             </div>
                             :
-                            <div className="navbar-end gap-4">
-                                <h3>{user.displayName}</h3>
-                                <Button onClick={handleLogOutButton} size={"sm"} icon={LuLogOut} btnText={"Log out"} />
+
+                            <div className="navbar-end gap-4 relative">
+                                <div className="dropdown dropdown-bottom dropdown-end">
+                                    {/* Avatar */}
+                                    <div
+                                        tabIndex={0}
+                                        className="h-10 w-10 rounded-full outline outline-offset-2 cursor-pointer outline-accent text-white font-medium grid place-items-center bg-accent"
+                                    >
+                                        {user.displayName
+                                            .split(" ")
+                                            .map((n) => n[0])
+                                            .join("")}
+                                    </div>
+
+                                    {/* Dropdown Content */}
+                                    <ul
+                                        tabIndex={0}
+                                        className="dropdown-content menu bg-white rounded-xl z-1  p-2 shadow-lg border border-border"
+                                    >
+                                        {/* User Info */}
+                                        <li className="px-3 py-2 cursor-default">
+                                            <p className="font-semibold leading-none hover:bg-white">{user.displayName}</p>
+                                            <p className="text-xs opacity-60 hover:bg-white">{user.email}</p>
+                                        </li>
+
+                                        {/* Dashboard */}
+                                        <li>
+                                            <Link to="/dashboard" className="flex items-center gap-2">
+                                                <span className="text-accent"><LuNotebook/></span>
+                                                Dashboard
+                                            </Link>
+                                        </li>
+
+                                        <div className="divider my-1"></div>
+
+                                        {/* Logout */}
+                                        <li>
+                                            <button
+                                                onClick={handleLogOutButton}
+                                                className="flex items-center gap-2 text-error bg-error/10 hover:bg-error hover:text-white duration-500"
+                                            >
+                                                <LuLogOut size={16} />
+                                                Log out
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
+
                     }
 
 
