@@ -30,7 +30,7 @@ const Courses = () => {
         }
     }
     useEffect(() => {
-        fetch(`http://localhost:3000/courses/?page=${currentPage}&size=${itemsPerPage}`)
+        fetch(`${import.meta.env.VITE_API_URL}/courses/?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => {
                 setCourses(data);

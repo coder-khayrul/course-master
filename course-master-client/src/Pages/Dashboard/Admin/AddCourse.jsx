@@ -76,7 +76,7 @@ const AddCourse = () => {
                 tags: tags
             };
 
-            const res = await fetch("http://localhost:3000/add-course", {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/add-course`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

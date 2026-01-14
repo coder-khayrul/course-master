@@ -20,12 +20,12 @@ export const Router = createBrowserRouter([
                 index: true,
                 path: "/",
                 Component: Home,
-                loader: () => fetch("http://localhost:3000/courses")
+                loader: () => fetch(`${import.meta.env.VITE_API_URL}/courses`)
             },
             {
                 path: "/courses",
                 Component: Courses,
-                loader: () => fetch("http://localhost:3000/totalCourses")
+                loader: () => fetch(`${import.meta.env.VITE_API_URL}/totalCourses`)
             },
             {
                 path: "/about",
@@ -42,7 +42,7 @@ export const Router = createBrowserRouter([
             {
                 path: "/courses/:slug",
                 Component: CourseDetails,
-                loader: (({ params }) => fetch(`http://localhost:3000/courses/${params.slug}`))
+                loader: (({ params }) => fetch(`${import.meta.env.VITE_API_URL}/courses/${params.slug}`))
             }
         ]
     },
@@ -58,13 +58,13 @@ export const Router = createBrowserRouter([
             {
                 path: "/dashboard/admin/manage-courses",
                 Component: ManageCourses,
-                loader: (() => fetch("http://localhost:3000/courses"))
+                loader: (() => fetch(`${import.meta.env.VITE_API_URL}/courses`))
 
             },
             {
                 path: "/dashboard/admin/add-course",
                 Component: AddCourse,
-                 loader: (() => fetch("http://localhost:3000/courses"))
+                 loader: (() => fetch(`${import.meta.env.VITE_API_URL}/courses`))
             },
 
         ]
