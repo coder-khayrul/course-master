@@ -94,7 +94,7 @@ const Register = () => {
 
                     {/* Social Login */}
                     <div className="grid grid-cols-2 gap-4">
-                        <button onClick={handleSigninWithGoogle} className="h-12  rounded-md bg-indigo-100 flex items-center justify-center gap-5 text-indigo-700 cursor-pointer ">
+                        <button onClick={() => handleSigninWithGoogle()} className="h-12  rounded-md bg-indigo-100 flex items-center justify-center gap-5 text-indigo-700 cursor-pointer ">
                             <FcGoogle className='h-6 w-6' />
                             Google
                         </button>
