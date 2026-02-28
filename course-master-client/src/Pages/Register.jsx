@@ -9,9 +9,9 @@ import { AuthContext } from '../Context/AuthContext';
 import { useForm } from "react-hook-form"
 import Swal from 'sweetalert2';
 const Register = () => {
-    const { registerWithEmailPass, updateUserProfile, setUser,user } = use(AuthContext);
+    const { registerWithEmailPass, updateUserProfile, setUser, user,signInWithGoogle } = use(AuthContext);
     const { register, handleSubmit } = useForm()
- const navigate = useNavigate()
+    const navigate = useNavigate()
     const onSubmit = (data) => {
         const email = data.email;
         const password = data.password;
@@ -19,16 +19,16 @@ const Register = () => {
         const phoneNumber = data.phone;
         registerWithEmailPass(email, password)
             .then((userData) => {
-                updateUserProfile({displayName:displayName, phoneNumber:phoneNumber})
+                updateUserProfile({ displayName: displayName, phoneNumber: phoneNumber })
                 setUser(userData.user)
                 console.log(user);
                 Swal.fire({
                     icon: 'success',
                     title: `${user.displayName}, Successfully Loggedin`,
                     text: "Authentication complete. Welcome to your learning space",
-                    
+
                 });
-                 navigate("/");
+                navigate("/");
             })
             .catch(error => {
                 Swal.fire({
@@ -38,7 +38,32 @@ const Register = () => {
                 })
             })
     }
+    const handleSigninWithGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                Swal.fire({
+                    icon: 'success',
+                    title: `${result.user.displayName} Successfully Loggedin`,
+                    text: "Authentication complete. Welcome to your learning space",
+                    background: "#5740E7",
+                    color: "#fff",
+                    buttonsStyling: false,
+                });
+                setUser(result.user);
+                navigate("/")
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${error.message}`,
+                    background: "#5740E7",
+                    color: "#fff",
+                    buttonsStyling: false,
 
+                })
+            })
+    }
 
     return (
         <section className='py-20'>
@@ -69,7 +94,7 @@ const Register = () => {
 
                     {/* Social Login */}
                     <div className="grid grid-cols-2 gap-4">
-                        <button className="h-12  rounded-md bg-indigo-100 flex items-center justify-center gap-5 text-indigo-700 cursor-pointer ">
+                        <button onClick={handleSigninWithGoogle} className="h-12  rounded-md bg-indigo-100 flex items-center justify-center gap-5 text-indigo-700 cursor-pointer ">
                             <FcGoogle className='h-6 w-6' />
                             Google
                         </button>
