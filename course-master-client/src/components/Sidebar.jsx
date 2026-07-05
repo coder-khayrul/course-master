@@ -50,11 +50,6 @@ export function AppSidebar() {
                             </NavLink>
                         </li>
 
-                        <li>
-                            <NavLink to="/dashboard/my-products">
-                                My Products
-                            </NavLink>
-                        </li>
                     </>
                 )}
             </ul>

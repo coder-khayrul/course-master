@@ -1,11 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
 import TextArea from '../../../components/ui/TextArea';
 import Button from '../../../components/ui/Button';
+import { RiStickyNoteAddLine } from "react-icons/ri";
+import { BiArrowBack } from "react-icons/bi";
 
 const AddCourse = () => {
 
@@ -104,6 +106,14 @@ const AddCourse = () => {
 
     return (
         <div className="bg-white p-5 rounded-2xl">
+            <Link to={"http://localhost:5173/dashboard/admin/manage-courses"}>
+            <button className='bookmarkBtn'>
+                <span class="IconContainer">
+                                            <BiArrowBack className='icon'/>
+                                        </span>
+                                        <p className='text'>Go Back</p>
+                                        </button>
+            </Link>
             <h3 className="font-bold text-lg">Create New Course</h3>
             <p className="text-sm text-base-content/70 mb-4">
                 Fill in the details to create a new course.
@@ -266,13 +276,12 @@ const AddCourse = () => {
                 </div>
 
                 {/* Actions */}
-                <div className="modal-action">
+                <div className="modal-action flex items-center justify-center">
                     <Button
-                     type="submit"
+                     type="submit" btnText="Create Course" icon={RiStickyNoteAddLine}
                         className={`btn btn-primary ${isSubmitting ? "loading" : ""
                             }`}
                     >
-                        Create Course
                     </Button>
                 </div>
             </form>

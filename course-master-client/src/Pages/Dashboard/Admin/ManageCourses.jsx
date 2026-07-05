@@ -1,9 +1,10 @@
 import React from 'react';
 import { LuPlus, LuSearch } from 'react-icons/lu';
-import { Link } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const ManageCourses = () => {
-    
+    const courseData = useLoaderData();
+  
     return (
         <div>
             <div className="space-y-6">
@@ -12,7 +13,7 @@ const ManageCourses = () => {
                     <h1 className="text-2xl font-bold">Course Management</h1>
 
                     {/* Add Course Button */}
-                    <Link  to={"/dashboard/admin/add-course"}
+                    <Link to={"/dashboard/admin/add-course"}
                         className="btn btn-primary gap-2"
                     >
                         <LuPlus className="h-4 w-4" />
@@ -21,22 +22,41 @@ const ManageCourses = () => {
                 </div>
 
                 {/* Search */}
-                {/* <div className="flex gap-4">
-                    <div className="relative flex-1 max-w-sm">
-                        <LuSearch className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-base-content/60" />
-                        <input
-                            type="text"
-                            placeholder="Search courses..."
-                            className="input input-bordered w-full pl-10"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
+                <div className="flex gap-4">
+                    <div className="relative flex-1">
+                        <div className="overflow-x-auto">
+                            <table className="table">
+                                {/* head */}
+                                <thead>
+                                    <tr>
+
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Students</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        courseData.map(course => (
+                                            <tr>
+                                                <td>{course?.title}</td>
+                                                <td><span className='border border-gray-200 p-1 rounded-md text-xm'>{course?.category}</span></td>
+                                                <td>{course?.enrolledCount}</td>
+                                            </tr>
+                                        ))
+                                    }
+                                    <tr>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div> */}
 
-                {/* Modal */}
+                    {/* Modal */}
+                </div>
+
             </div>
-
         </div>
     );
 };

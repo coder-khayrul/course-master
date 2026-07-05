@@ -10,6 +10,7 @@ import { Dashboard } from "../Layouts/Dashboard";
 import ManageCourses from "../Pages/Dashboard/Admin/ManageCourses";
 import Overview from "../Pages/Dashboard/Admin/Overview";
 import AddCourse from "../Pages/Dashboard/Admin/AddCourse";
+import Contact from "../Pages/Contact";
 
 export const Router = createBrowserRouter([
     {
@@ -30,6 +31,11 @@ export const Router = createBrowserRouter([
             {
                 path: "/about",
                 Component: About
+            },
+            
+            {
+                path: "/contact",
+                Component: Contact
             },
             {
                 path: "/login",
