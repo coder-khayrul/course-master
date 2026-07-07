@@ -1,16 +1,20 @@
 import React from 'react';
-import Breadcrumbs from '../components/ui/Breadcrumbs';
+import { FiInfo as InfoIcon } from 'react-icons/fi';
+import PageHeader from '../components/PageHeader';
 
 const About = () => {
     return (
         <div>
-            <div className='h-80 px-10 bg-linear-120 flex flex-col bg- items-center justify-center bg-container'>
-                <div>
-                    <h2 className='text-2xl md:text-3xl font-bold mb-8 text-white'>About Us</h2>
-                </div>
-                <Breadcrumbs />
+            <PageHeader
+                title="About us"
+                description="Learn more about our mission, values, and the team behind Course Master."
+                badgeTitle="Who we are"
+                badgeDescription="A learning platform built for curious minds and lifelong growth."
+                icon={InfoIcon}
+            />
+            <div className="px-6 py-12 lg:px-10">
+                <p className="text-lg text-slate-600">We’re About Page here</p>
             </div>
-            I'm About Page here
         </div>
     );
 };

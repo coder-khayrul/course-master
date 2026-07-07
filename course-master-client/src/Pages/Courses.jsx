@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import CourseCard from '../components/CourseCard';
 import Container from '../components/ui/Container';
-import Breadcrumbs from '../components/ui/Breadcrumbs';
+import PageHeader from '../components/PageHeader';
 import { useLoaderData } from 'react-router';
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
+import { FiBookOpen as BookIcon } from 'react-icons/fi';
 const Courses = () => {
     const [courses, setCourses] = useState([]);
     let [currentPage, setCurrentPage] = useState(1);
@@ -43,12 +44,13 @@ const Courses = () => {
 
     return (
         <section className="pb-16">
-            <div className='h-80 px-10 bg-linear-120 flex flex-col bg- items-center justify-center bg-container'>
-                <div>
-                    <h2 className='text-2xl md:text-3xl font-bold mb-8 text-white'>All Courses</h2>
-                </div>
-                <Breadcrumbs />
-            </div>
+            <PageHeader
+                title="All Courses"
+                description="Browse our full collection of courses and find the right learning path for your goals."
+                badgeTitle="Explore by topic"
+                badgeDescription="Choose a category and start learning today."
+                icon={BookIcon}
+            />
             <Container>
                 <div className="py-10">
                     <h2 className="text-2xl md:text-3xl font-bold mb-8">Browse All Courses</h2>

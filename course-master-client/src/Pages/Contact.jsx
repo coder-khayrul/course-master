@@ -84,11 +84,6 @@ export default function Contact() {
           <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <Breadcrumbs />
-              {/* <div className="mb-5 mt-2 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-sm">
-                <MessageSquare className="h-4 w-4" />
-                Get in Touch
-              </div> */}
-
               <h1 className="text-4xl mt-5 font-bold tracking-tight text-white sm:text-5xl">
                 Contact us for support
               </h1>
